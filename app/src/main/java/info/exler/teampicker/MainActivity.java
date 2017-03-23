@@ -3,17 +3,12 @@ package info.exler.teampicker;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 
@@ -26,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
 
         Button assign = (Button) findViewById(R.id.button);
         final String[] spinnerList = {"Player", "Team"};
-        boolean sortByTeam = false;
         final Spinner sortSpinner = (Spinner) findViewById(R.id.spinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, spinnerList);
         sortSpinner.setAdapter(adapter);
@@ -51,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
                             int playerTeam = assignedPlayers[i][0];
                             if ((playerTeam) == currentTeam) {
                                 playersPerTeam[currentTeam] += 1;
-
                             }
                         }
                         currentTeam++;
@@ -66,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
                     }else{
                         Toast.makeText(getApplicationContext(),"Please enter more players.", Toast.LENGTH_SHORT).show();
                     }
-
                 }
                 catch(Exception e){
                     Toast.makeText(getApplicationContext(), "Enter number of players and teams to proceed.", Toast.LENGTH_SHORT).show();
@@ -89,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
             if (playersPerTeam > playersInTeam[rngint]) {
                 playersInTeam[rngint]++;
                 playerList[i][0] = rngint;
-               // Log.d("Output: ", playerList[i][0] + "");
             } else {
                 int newrng;
                 do {
@@ -97,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
                 } while (newrng == rngint);
                 playersInTeam[newrng]++;
                 playerList[i][0] = newrng;
-               // Log.d("Output: ", playerList[i][0] + "");
             }
 
         }

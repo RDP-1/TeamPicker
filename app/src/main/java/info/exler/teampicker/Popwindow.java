@@ -81,7 +81,6 @@ public class Popwindow extends Activity {
                 int playerTeam = assignedPlayers[i][0];
                 if ((playerTeam)==currentTeam){
                     displayString+=" Player " + (i+1) + ", ";
-
                 }
             }
             currentTeam++;
